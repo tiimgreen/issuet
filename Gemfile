@@ -14,6 +14,7 @@ gem 'jbuilder', '~> 1.2'
 
 gem 'rails_12factor', group: :production
 
+gem 'pry-rails', group: :development
 group :development, :test do
   gem 'rspec-rails'
   gem 'guard-rspec', require: false
