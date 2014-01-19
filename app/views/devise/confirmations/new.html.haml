@@ -4,6 +4,6 @@
   %div
     = f.label :login
     %br/
-    = f.email_field :login, :autofocus => true
+    = f.text_field :login, :autofocus => true
   %div= f.submit "Resend confirmation instructions"
 = render "devise/shared/links"
