@@ -2,10 +2,8 @@
 %html
   %head
     %title Issuet
-    = stylesheet_link_tag    '//netdna.bootstrapcdn.com/bootstrap/3.0.3/css/bootstrap.min.css'
     = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true
     = javascript_include_tag 'application', 'data-turbolinks-track' => true
-    = javascript_include_tag '//netdna.bootstrapcdn.com/bootstrap/3.0.3/js/bootstrap.min.js'
     = csrf_meta_tags
   %body
     %nav.navbar.navbar-default{'role' => 'navigation'}
@@ -22,3 +20,4 @@
           %button.close{'aria-hidden' => 'true', 'data-dismiss' => 'alert', type: 'button'} &times;
           = alert
       = yield
+  = javascript_include_tag '//netdna.bootstrapcdn.com/bootstrap/3.0.3/js/bootstrap.min.js'
