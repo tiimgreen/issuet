@@ -1,30 +1,30 @@
 source 'https://rubygems.org'
 
 gem 'rails', '4.0.2'
-gem 'pg'
+gem 'pg', '~> 0.17'
 
 gem 'sass-rails', '~> 4.0.0'
 gem 'haml-rails', '~> 0.5.3'
 gem 'uglifier', '>= 1.3.0'
 gem 'coffee-rails', '~> 4.0.0'
-gem 'jquery-rails'
+gem 'jquery-rails', '~> 3.0'
 
-gem 'turbolinks'
+gem 'turbolinks', '~> 2.2'
 gem 'jbuilder', '~> 1.2'
 
 gem 'rails_12factor', group: :production
 
 group :development do
-  gem 'better_errors'
-  gem 'binding_of_caller'
-  gem 'pry-rails'
+  gem 'better_errors', '~> 1.1'
+  gem 'binding_of_caller', '~> 0.7'
+  gem 'pry-rails', '~> 0.3'
 end
 
 group :development, :test do
-  gem 'rspec-rails'
-  gem 'guard-rspec', require: false
+  gem 'rspec-rails', '~> 2.14'
+  gem 'guard-rspec', '~> 4.2', require: false
 end
 
 group :doc do
-  gem 'sdoc', require: false
+  gem 'sdoc', '~> 0.4', require: false
 end

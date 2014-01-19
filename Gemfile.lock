@@ -173,19 +173,19 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
-  better_errors
-  binding_of_caller
+  better_errors (~> 1.1)
+  binding_of_caller (~> 0.7)
   coffee-rails (~> 4.0.0)
-  guard-rspec
+  guard-rspec (~> 4.2)
   haml-rails (~> 0.5.3)
   jbuilder (~> 1.2)
-  jquery-rails
-  pg
-  pry-rails
+  jquery-rails (~> 3.0)
+  pg (~> 0.17)
+  pry-rails (~> 0.3)
   rails (= 4.0.2)
   rails_12factor
-  rspec-rails
+  rspec-rails (~> 2.14)
   sass-rails (~> 4.0.0)
-  sdoc
-  turbolinks
+  sdoc (~> 0.4)
+  turbolinks (~> 2.2)
   uglifier (>= 1.3.0)
