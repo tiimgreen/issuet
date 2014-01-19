@@ -6,9 +6,9 @@
         %h2.panel-title Sign in
       .panel-body
         = form_for resource, as: resource_name, url: session_path(resource_name), class: 'input-group input-group-lg' do |f|
-          = f.text_field :login, placeholder: 'Login', autofocus: true, class: 'form-control'
+          = f.text_field :login, placeholder: 'Login', required: 'true', autofocus: true, class: 'form-control'
           %br
-          = f.password_field :password, placeholder: 'Password', class: 'form-control'
+          = f.password_field :password, placeholder: 'Password', required: 'true', class: 'form-control'
           %br
           = f.submit 'Sign in', class: 'btn btn-primary btn-block'
       .panel-footer
