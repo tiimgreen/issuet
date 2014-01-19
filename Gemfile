@@ -12,6 +12,8 @@ gem 'jquery-rails', '~> 3.0'
 gem 'turbolinks', '~> 2.2'
 gem 'jbuilder', '~> 1.2'
 
+gem 'devise', '~> 3.2'
+
 gem 'rails_12factor', group: :production
 
 group :development do

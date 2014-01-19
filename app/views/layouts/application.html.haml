@@ -11,7 +11,14 @@
     %nav.navbar.navbar-default{'role' => 'navigation'}
       .container
         .navbar-header
-          %a.navbar-brand{'href' => '#'}
-            Issuet
+          %a.navbar-brand{'href' => '#'} Issuet
     .container
+      - if notice
+        .alert.alert-info.alert-dissmissable
+          %button.close{'aria-hidden' => 'true', 'data-dismiss' => 'alert', type: 'button'} &times;
+          = notice
+      - if alert
+        .alert.alert-warning.alert-dissmissable
+          %button.close{'aria-hidden' => 'true', 'data-dismiss' => 'alert', type: 'button'} &times;
+          = alert
       = yield
