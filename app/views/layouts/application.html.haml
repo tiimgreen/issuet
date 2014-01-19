@@ -8,4 +8,10 @@
     = javascript_include_tag '//netdna.bootstrapcdn.com/bootstrap/3.0.3/js/bootstrap.min.js'
     = csrf_meta_tags
   %body
-    = yield
+    %nav.navbar.navbar-default{'role' => 'navigation'}
+      .container
+        .navbar-header
+          %a.navbar-brand{'href' => '#'}
+            Issuet
+    .container
+      = yield
