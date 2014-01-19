@@ -19,6 +19,7 @@
             - if user_signed_in?
               %li.dropdown
                 %a.dropdown-toggle{'href' => '#', 'data-toggle' => 'dropdown'}
+                  = gravatar_image_tag current_user.email, alt: '', style: 'margin-right: 5px; margin-bottom: 1px;', gravatar: {size: 20}
                   = current_user.username
                   %b.caret
                 %ul.dropdown-menu
