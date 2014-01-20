@@ -1,21 +1,21 @@
-%h2 Sign up
-= form_for(resource, :as => resource_name, :url => registration_path(resource_name)) do |f|
-  = devise_error_messages!
-  %div
-    = f.label :username
-    %br/
-    = f.text_field :username, :autofocus => true
-  %div
-    = f.label :email
-    %br/
-    = f.email_field :email
-  %div
-    = f.label :password
-    %br/
-    = f.password_field :password
-  %div
-    = f.label :password_confirmation
-    %br/
-    = f.password_field :password_confirmation
-  %div= f.submit "Sign up"
-= render "devise/shared/links"
+.row
+  .col-md-4
+  .col-md-4
+    .panel.panel-primary
+      .panel-heading.text-center
+        %h2.panel-title Sign up
+      .panel-body
+        = form_for resource, as: resource_name, url: registration_path(resource_name) do |f|
+          = devise_error_messages!
+          = f.text_field :username, placeholder: 'Username', required: 'true', autofocus: true, class: 'form-control'
+          %br
+          = f.email_field :email, placeholder: 'Email', required: 'true', class: 'form-control'
+          %br
+          = f.password_field :password, placeholder: 'Password', required: 'true', autocomplete: 'off', class: 'form-control'
+          %br
+          = f.password_field :password_confirmation, placeholder: 'Password confirmation', required: 'true', class: 'form-control'
+          %br
+          = f.submit 'Sign up', class: 'btn btn-primary btn-block'
+      .panel-footer
+        = render 'devise/shared/links'
+  .col-md4
