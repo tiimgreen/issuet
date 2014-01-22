@@ -3,3 +3,5 @@ AllCops:
     - config/initializers/secret_token.rb
     - db/**
   RunRailsCops: true
+Documentation:
+  Enabled: false
