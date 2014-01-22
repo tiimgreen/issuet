@@ -27,6 +27,7 @@ end
 group :development, :test do
   gem 'rspec-rails', '~> 2.14'
   gem 'guard-rspec', '~> 4.2', require: false
+  gem 'guard-rubocop', '~> 1.0'
 end
 
 group :doc do
