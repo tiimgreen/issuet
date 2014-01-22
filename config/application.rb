@@ -29,5 +29,8 @@ module Issuet
     # config.i18n.load_path +=
     #   Dir[Rails.root.join('my', 'locales', '*.{rb,yml}').to_s]
     # config.i18n.default_locale = :de
+    config.generators do |g|
+      g.fixture_replacement :factory_girl, dir: 'spec/factories'
+    end
   end
 end

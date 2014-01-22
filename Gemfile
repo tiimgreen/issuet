@@ -26,6 +26,9 @@ end
 
 group :development, :test do
   gem 'rspec-rails', '~> 2.14'
+  gem 'factory_girl_rails', '~> 4.3'
+  gem 'faker', '~> 1.2'
+  gem 'capybara', '~> 2.2'
   gem 'guard-rspec', '~> 4.2', require: false
   gem 'guard-rubocop', '~> 1.0'
 end
