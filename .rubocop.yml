@@ -1,4 +1,5 @@
 AllCops:
   Excludes:
+    - config/initializers/secret_token.rb
     - db/**
   RunRailsCops: true
