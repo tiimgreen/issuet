@@ -1,5 +1,3 @@
-require 'faker'
-
 FactoryGirl.define do
   factory :user do |user|
     password = Faker::Internet.password
