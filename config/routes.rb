@@ -1,5 +1,4 @@
 Issuet::Application.routes.draw do
-  get "dashboard/index"
   devise_for :users
   devise_scope :user do
     authenticated :user do
