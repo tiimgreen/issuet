@@ -19,7 +19,7 @@ guard :rspec, all_on_start: true do
   watch(%r{^spec/acceptance/steps/(.+)_steps\.rb$})   { |m| Dir[File.join("**/#{m[1]}.feature")][0] || 'spec/acceptance' }
 end
 
-guard :rubocop, all_on_start: false, cli: ['-R'] do
+guard :rubocop, all_on_start: true, cli: ['-R', '--format', 'emacs'] do
   watch(%r{.+\.rb$})
   watch(%r{(?:.+/)?\.rubocop\.yml$}) { |m| File.dirname(m[0]) }
 end
