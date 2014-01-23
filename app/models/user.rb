@@ -4,7 +4,8 @@ class User < ActiveRecord::Base
 
   attr_accessor :login
 
-  has_many :issues
+  has_many :issues, dependent: :destroy
+  has_many :projects, dependent: :destroy
 
   validates :username, presence: true, uniqueness: { case_sensitive: false }
 

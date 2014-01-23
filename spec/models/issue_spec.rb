@@ -3,6 +3,8 @@ require 'spec_helper'
 describe Issue do
   it { should belong_to(:user) }
 
+  it { should belong_to(:project) }
+
   it 'should have a valid factory' do
     FactoryGirl.create(:issue).should be_valid
   end
@@ -20,4 +22,8 @@ describe Issue do
   it 'should require state to be "open" by default' do
     FactoryGirl.build(:issue).state.should == 'open'
   end
+
+  it { should validate_presence_of(:user) }
+
+  it { should validate_presence_of(:project) }
 end
