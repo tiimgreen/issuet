@@ -1,7 +1,6 @@
 FactoryGirl.define do
-  factory :issue do |issue|
-    issue.title { Faker::Lorem.sentence }
-    issue.body { Faker::Lorem.paragraph }
-    issue.state 'open'
+  factory :issue do
+    title { Faker::Lorem.sentence }
+    body { Faker::Lorem.paragraph }
   end
 end
