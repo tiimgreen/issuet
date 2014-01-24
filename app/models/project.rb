@@ -4,4 +4,8 @@ class Project < ActiveRecord::Base
 
   validates :name, presence: true, uniqueness: true
   validates :user, presence: true
+
+  def to_param
+    name
+  end
 end

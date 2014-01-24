@@ -1,0 +1,10 @@
+.row
+  .col-md-12
+    %h1
+      = @owner.username
+      \/
+      %a{'href' => project_path(@project)}= @project.name
+      - unless @project.description.blank?
+        %small= @project.description
+      - if @project.user_id == current_user.id
+        = link_to 'Edit project', edit_project_path, class: 'btn btn-xs btn-default'

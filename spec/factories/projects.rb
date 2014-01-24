@@ -1,6 +1,6 @@
 FactoryGirl.define do
   factory :project do
-    name { Faker::Company.name }
+    name { Faker::Lorem.word }
     description { Faker::Lorem.sentence }
     user { FactoryGirl.create(:user) }
   end

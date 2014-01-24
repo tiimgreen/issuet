@@ -1,0 +1,15 @@
+.row
+  .col-md-4
+  .col-md-4
+    .panel.panel-primary
+      .panel-heading.text-center
+        %h2.panel-title Create a new project
+      .panel-body
+        = render 'errors'
+        = form_for @project, url: projects_path, method: :post, class: 'input-group input-group-lg' do |f|
+          = f.text_field :name, placeholder: 'Project name', required: 'true', autofocus: true, class: 'form-control'
+          %br
+          = f.text_field :description, placeholder: 'Description (optional)', class: 'form-control'
+          %br
+          = f.submit 'Create project', class: 'btn btn-success btn-block'
+  .col-md-4

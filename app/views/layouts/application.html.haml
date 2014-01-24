@@ -17,6 +17,7 @@
         .collapse.navbar-collapse#main-navbar
           %ul.nav.navbar-nav.navbar-right
             - if user_signed_in?
+              %li= link_to 'Create a new project', new_project_path
               %li.dropdown
                 %a.dropdown-toggle{'href' => '#', 'data-toggle' => 'dropdown'}
                   = gravatar_image_tag current_user.email, alt: '', style: 'margin-right: 5px; margin-bottom: 1px;', gravatar: {size: 20}

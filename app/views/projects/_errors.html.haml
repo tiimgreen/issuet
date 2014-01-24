@@ -1,0 +1,9 @@
+- if @project.errors.any?
+  .alert.alert-danger.alert-dismissable
+    %button.close{'type' => 'button', 'data-dismiss' => 'alert', 'aria-hidden' => 'true'} &times;
+    %strong
+      = pluralize @project.errors.count, 'error'
+      prohibited this album from being saved:
+    %ul
+      - @project.errors.full_messages.each do |msg|
+        %li= msg
