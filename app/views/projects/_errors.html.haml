@@ -3,7 +3,7 @@
     %button.close{'type' => 'button', 'data-dismiss' => 'alert', 'aria-hidden' => 'true'} &times;
     %strong
       = pluralize @project.errors.count, 'error'
-      prohibited this album from being saved:
+      prohibited this project from being saved:
     %ul
       - @project.errors.full_messages.each do |msg|
         %li= msg
