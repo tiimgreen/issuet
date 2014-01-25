@@ -1,0 +1,55 @@
+.row
+  .col-md-3
+    = gravatar_image_tag @user.email, alt: 'Change your avatar at gravatar.com', class: 'gravatar', title: 'Change your avatar at gravatar.com', gravatar: { size: 512 }
+    %h2= @user.username
+    %hr
+    %h5
+      %span.glyphicon.glyphicon-envelope
+      = link_to @user.email, "mailto: #{@user.email}"
+    %h5
+      %span.glyphicon.glyphicon-book
+      Owns
+      = pluralize(@user.projects.count, 'project')
+    %h5
+      %span.glyphicon.glyphicon-flag
+      Created
+      = pluralize(@user.issues.count, 'issue')
+    %h5
+      %span.glyphicon.glyphicon-time
+      Joined on
+      = @user.created_at.strftime('%b %e, %Y')
+  .col-md-5
+    .panel.panel-default
+      .panel-heading
+        %h2.panel-title
+          Projects
+          %small by
+          %small= @user.username
+      %ul.list-group
+        - if @user.projects.blank?
+          .panel-body
+            %br
+            %p.text-center No projects to show.
+        - else
+          - @user.projects.order('updated_at DESC').each do |project|
+            %a.list-group-item{'href' => project_path(project)}
+              %span.badge= project.issues.count
+              %h4.list-group-item-heading= project.name
+              - unless project.description.blank?
+                %p.list-group-item-text= project.description
+  .col-md-4
+    .panel.panel-default
+      .panel-heading
+        %h2.panel-title
+          Issues
+          %small by
+          %small= @user.username
+      %ul.list-group
+        - if @user.issues.blank?
+          .panel-body
+            %br
+            %p.text-center No issues to show.
+        - else
+          - @user.issues.order('created_at DESC').each do |issue|
+            %a.list-group-item{'href' => issue_path(issue)}
+              %h4.list-group-item-heading= issue.title

@@ -1,9 +1,9 @@
 .row
   .col-md-12
     %h1
-      = @owner.username
+      = link_to @owner.username, user_profile_path(@owner.username)
       \/
-      %a{'href' => project_path(@project)}= @project.name
+      = link_to @project.name, project_path(@project)
       - unless @project.description.blank?
         %small= @project.description
       - if @project.user_id == current_user.id
