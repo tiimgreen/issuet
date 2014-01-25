@@ -37,19 +37,19 @@
               %h4.list-group-item-heading= project.name
               - unless project.description.blank?
                 %p.list-group-item-text= project.description
-  .col-md-4
-    .panel.panel-default
-      .panel-heading
-        %h2.panel-title
-          Issues
-          %small by
-          %small= @user.username
-      %ul.list-group
-        - if @user.issues.blank?
-          .panel-body
-            %br
-            %p.text-center No issues to show.
-        - else
-          - @user.issues.order('created_at DESC').each do |issue|
-            %a.list-group-item{'href' => issue_path(issue)}
-              %h4.list-group-item-heading= issue.title
+  / .col-md-4
+  /   .panel.panel-default
+  /     .panel-heading
+  /       %h2.panel-title
+  /         Issues
+  /         %small by
+  /         %small= @user.username
+  /     %ul.list-group
+  /       - if @user.issues.blank?
+  /         .panel-body
+  /           %br
+  /           %p.text-center No issues to show.
+  /       - else
+  /         - @user.issues.order('created_at DESC').each do |issue|
+  /           %a.list-group-item{'href' => issue_path(issue)}
+  /             %h4.list-group-item-heading= issue.title
