@@ -1,7 +1,7 @@
 .row
   .col-md-4
   .col-md-4
-    .panel.panel-primary
+    .panel.panel-default
       .panel-heading.text-center
         %h2.panel-title Resend unlock instructions
       .panel-body
@@ -9,7 +9,7 @@
           = devise_error_messages!
           = f.email_field :email, placeholder: 'Email', required: 'true', autofocus: true, class: 'form-control'
           %br
-          = f.submit 'Resend unlock instructions', class: 'btn btn-primary btn-block'
+          = f.submit 'Resend unlock instructions', class: 'btn btn-default btn-block'
       .panel-footer
         = render 'devise/shared/links'
   .col-md4

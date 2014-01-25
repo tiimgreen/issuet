@@ -1,7 +1,7 @@
 .row
   .col-md-4
   .col-md-4
-    .panel.panel-primary
+    .panel.panel-default
       .panel-heading.text-center
         %h2.panel-title Sign in
       .panel-body
@@ -10,7 +10,7 @@
           %br
           = f.password_field :password, placeholder: 'Password', required: 'true', class: 'form-control'
           %br
-          = f.submit 'Sign in', class: 'btn btn-primary btn-block'
+          = f.submit 'Sign in', class: 'btn btn-default btn-block'
       .panel-footer
         = render 'devise/shared/links'
   .col-md-4

@@ -1,7 +1,7 @@
 .row
   .col-md-4
   .col-md-4
-    .panel.panel-primary
+    .panel.panel-default
       .panel-heading.text-center
         %h2.panel-title Edit account settings
       .panel-body
@@ -17,7 +17,7 @@
           %br
           = f.password_field :current_password, placeholder: 'Current password (to confirm your changes)', required: 'true', class: 'form-control'
           %br
-          = f.submit 'Save changes', class: 'btn btn-primary btn-block'
+          = f.submit 'Save changes', class: 'btn btn-default btn-block'
       .panel-footer
         = button_to 'Cancel my account', registration_path(resource_name), data: { confirm: 'Are you sure you want to cancel your account?' }, method: :delete, class: 'btn btn-xs btn-warning btn-block'
   .col-md4

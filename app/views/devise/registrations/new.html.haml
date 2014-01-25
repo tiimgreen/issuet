@@ -1,7 +1,7 @@
 .row
   .col-md-4
   .col-md-4
-    .panel.panel-primary
+    .panel.panel-default
       .panel-heading.text-center
         %h2.panel-title Sign up
       .panel-body
@@ -15,7 +15,7 @@
           %br
           = f.password_field :password_confirmation, placeholder: 'Password confirmation', required: 'true', class: 'form-control'
           %br
-          = f.submit 'Sign up', class: 'btn btn-primary btn-block'
+          = f.submit 'Sign up', class: 'btn btn-success btn-block'
       .panel-footer
         = render 'devise/shared/links'
   .col-md4

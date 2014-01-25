@@ -6,7 +6,7 @@
     = javascript_include_tag 'application', 'data-turbolinks-track' => true
     = csrf_meta_tags
   %body
-    %nav.navbar.navbar-inverse.navbar-default{'role' => 'navigation'}
+    %nav.navbar.navbar-default{'role' => 'navigation'}
       .container
         .navbar-header
           %button.navbar-toggle{'type' => 'button', 'data-toggle' => 'collapse', 'data-target' => '#main-navbar'}
@@ -20,7 +20,7 @@
               %li= link_to 'Create a new project', new_project_path
               %li.dropdown
                 %a.dropdown-toggle{'href' => '#', 'data-toggle' => 'dropdown'}
-                  = gravatar_image_tag current_user.email, alt: '', style: 'margin-right: 5px; margin-bottom: 1px;', gravatar: {size: 20}
+                  = gravatar_image_tag current_user.email, alt: '', style: 'margin-right: 5px; margin-bottom: 1px;', gravatar: { size: 20 }
                   = current_user.username
                   %b.caret
                 %ul.dropdown-menu
@@ -31,7 +31,7 @@
               %li= link_to 'Sign in', new_user_session_path
     .container
       - if notice
-        .alert.alert-info.alert-dissmissable
+        .alert.alert-success.alert-dissmissable
           %button.close{'aria-hidden' => 'true', 'data-dismiss' => 'alert', type: 'button'} &times;
           = notice
       - if alert
