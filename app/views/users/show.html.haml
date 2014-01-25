@@ -31,12 +31,16 @@
             %br
             %p.text-center No projects to show.
         - else
-          - @user.projects.order('updated_at DESC').each do |project|
+          - default_project_limit = 6
+          - @user.projects.order('updated_at DESC').limit(params[:p] || default_project_limit).each do |project|
             %a.list-group-item{'href' => project_path(project)}
               %span.badge= project.issues.count
               %h4.list-group-item-heading= project.name
               - unless project.description.blank?
                 %p.list-group-item-text= project.description
+          - if (@user.projects.count > default_project_limit) && (params[:p].to_i < @user.projects.count)
+            %a.list-group-item{'href' => user_profile_path(@user.username, p: @user.projects.count)}
+              %h4.list-group-item-heading.text-center Show all projects
   / .col-md-4
   /   .panel.panel-default
   /     .panel-heading
