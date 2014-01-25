@@ -29,6 +29,7 @@ group :development, :test do
   gem 'factory_girl_rails', '~> 4.3'
   gem 'faker', '~> 1.2'
   gem 'shoulda', '~> 3.5'
+  gem 'database_cleaner', '~> 1.2'
   gem 'capybara', '~> 2.2'
   gem 'guard-rspec', '~> 4.2', require: false
   gem 'guard-rubocop', '~> 1.0'
