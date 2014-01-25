@@ -26,4 +26,20 @@ describe Issue do
   it { should validate_presence_of(:user) }
 
   it { should validate_presence_of(:project) }
+
+  it 'should increment the number attribute within a project' do
+    project1 = FactoryGirl.create(:project)
+    project2 = FactoryGirl.create(:project)
+
+    project1 << FactoryGirl.create(:issue, project: project1)
+    project1 << FactoryGirl.create(:issue, project: project1)
+    project2 << FactoryGirl.create(:issue, project: project2)
+    project2 << FactoryGirl.create(:issue, project: project2)
+
+    expect(project1.issues.first.number).to eq(1)
+    expect(project1.issues.last.number).to eq(2)
+
+    expect(project2.issues.first.number).to eq(1)
+    expect(project2.issues.last.number).to eq(2)
+  end
 end

@@ -1,4 +1,6 @@
 class Issue < ActiveRecord::Base
+  before_create :populate_number
+
   belongs_to :user
   belongs_to :project
 
@@ -12,5 +14,12 @@ class Issue < ActiveRecord::Base
 
   def <<(label)
     labels << label
+  end
+
+  def populate_number
+    if project
+      project.increment!(:issue_sequence)
+      self[:number] = project.issue_sequence
+    end
   end
 end
