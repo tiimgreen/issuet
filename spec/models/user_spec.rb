@@ -15,6 +15,8 @@ describe User do
 
   it { should validate_presence_of(:password) }
 
+  it { should validate_presence_of(:name) }
+
   it { should allow_value(Faker::Internet.email).for(:email) }
 
   it { should_not allow_value(Faker::Internet.user_name).for(:email) }
