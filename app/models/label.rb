@@ -6,6 +6,6 @@ class Label < ActiveRecord::Base
   validates :color,
             presence: true,
             uniqueness: { scope: :project },
-            format: { with: /(?<=#)(?<!^)(\h{6}|\h{3})/ }
+            inclusion: { in: %w(default primary success warning danger info) }
   validates :project, presence: true
 end

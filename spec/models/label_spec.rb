@@ -24,7 +24,7 @@ describe Label do
       title: Faker::Lorem.sentence,
       body: Faker::Lorem.paragraph, user: project.user)
     label = project.labels.create(
-      name: Faker::Lorem.word, color: "##{sprintf('%06x', (rand * 0xffffff))}")
+      name: Faker::Lorem.word, color: 'default')
     issue << label
 
     expect(Project.find(project).labels).to eq([label])
@@ -38,9 +38,9 @@ describe Label do
     project2 << FactoryGirl.create(:issue)
 
     expect(project1.issues.first.labels.create(
-      name: 'bug fix', color: '#333333', project: project1)).to be_valid
+      name: 'bug fix', color: 'default', project: project1)).to be_valid
     expect(project2.issues.first.labels.create(
-      name: 'bug fix', color: '#333333', project: project2)).to be_valid
+      name: 'bug fix', color: 'default', project: project2)).to be_valid
     Label.all.each { |l| expect(l.name).to eq('bug fix') }
   end
 end
