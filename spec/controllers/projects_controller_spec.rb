@@ -106,7 +106,7 @@ describe ProjectsController do
     end
   end
 
-  # TODO write specs for PATCH #update
+  # TODO, write specs for PATCH #update
   describe 'PATCH #update'
 
   describe 'DELETE #destroy' do
