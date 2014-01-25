@@ -36,7 +36,7 @@
           - @user.projects.order('updated_at DESC').limit(params[:p] || default_project_limit).each do |project|
             %a.list-group-item{'href' => project_path(project)}
               %span.badge= project.issues.count
-              %h4.list-group-item-heading= project.name
+              %h4.list-group-item-heading{'title' => "Last updated #{time_ago_in_words(project.updated_at)} ago"}= project.name
               - unless project.description.blank?
                 %p.list-group-item-text= project.description
           - if (@user.projects.count > default_project_limit) && (params[:p].to_i < @user.projects.count)
