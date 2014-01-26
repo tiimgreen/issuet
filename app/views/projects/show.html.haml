@@ -1,1 +1,31 @@
 = render 'shared/project_header'
+
+.row
+  .col-md-2
+    %ul.nav.nav-pills.nav-stacked
+      - open_count = @project.issues.where(state: 'open').count
+      - closed_count = @project.issues.count - open_count
+      - if !params[:state] || (params[:state] == 'open')
+        %li.active= link_to "#{open_count} open"
+      - else
+        %li= link_to "#{open_count} open", '?state=open'
+      - if params[:state] == 'closed'
+        %li.active= link_to "#{closed_count} closed"
+      - else
+        %li= link_to "#{closed_count} closed", '?state=closed'
+  .col-md-10
+    .list-group
+      - @project.issues.where(state: params[:state] || 'open').each do |issue|
+        %a.list-group-item{'href' => project_issue_path(@project, issue.number)}
+          %span.badge= "##{issue.number}"
+          %span.badge= issue.state
+          %h4.list-group-item-heading
+            = issue.title
+          %p.list-group-item-text.text-muted
+            Opened by
+            = issue.user.username
+            = time_ago_in_words(issue.created_at)
+            ago
+            - if issue.labels.any?
+              - issue.labels.each do |label|
+                %span.label{'class' => "label-#{label.color}"}= label.name

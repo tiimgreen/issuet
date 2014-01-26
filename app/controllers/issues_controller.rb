@@ -23,6 +23,10 @@ class IssuesController < ApplicationController
     end
   end
 
+  def show
+    @issue = Issue.find_by_number(params[:id])
+  end
+
   private
 
   def issue_owner?
