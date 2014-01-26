@@ -3,8 +3,8 @@
 .row
   .col-md-2
     %ul.nav.nav-pills.nav-stacked
-      - open_count = @project.issues.where(state: 'open').count
-      - closed_count = @project.issues.count - open_count
+      - open_count = @issues.where(state: 'open').count
+      - closed_count = @issues.count - open_count
       - if !params[:state] || (params[:state] == 'open')
         %li.active= link_to "#{open_count} open"
       - else
@@ -15,8 +15,8 @@
         %li= link_to "#{closed_count} closed", '?state=closed'
   .col-md-10
     .list-group
-      - if @project.issues.any?
-        - @project.issues.where(state: params[:state] || 'open').each do |issue|
+      - if @issues.any?
+        - @issues.where(state: params[:state] || 'open').each do |issue|
           %a.list-group-item{'href' => project_issue_path(@project, issue.number)}
             %span.badge= "##{issue.number}"
             %span.badge= issue.state
