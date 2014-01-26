@@ -12,7 +12,7 @@
         = form_for @project, url: project_path, method: :patch, class: 'input-group input-group-lg' do |f|
           = f.text_field :name, placeholder: 'Project name', required: 'true', autofocus: true, class: 'form-control'
           %br
-          = f.text_field :description, placeholder: 'Description (optional)', class: 'form-control'
+          = f.text_area :description, placeholder: 'Description (optional)', class: 'form-control'
           %br
           = f.submit 'Save changes', class: 'btn btn-success btn-block'
       .panel-footer
