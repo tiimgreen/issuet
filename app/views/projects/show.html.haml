@@ -15,17 +15,22 @@
         %li= link_to "#{closed_count} closed", '?state=closed'
   .col-md-10
     .list-group
-      - @project.issues.where(state: params[:state] || 'open').each do |issue|
-        %a.list-group-item{'href' => project_issue_path(@project, issue.number)}
-          %span.badge= "##{issue.number}"
-          %span.badge= issue.state
-          %h4.list-group-item-heading
-            = issue.title
-          %p.list-group-item-text.text-muted
-            Opened by
-            = issue.user.username
-            = time_ago_in_words(issue.created_at)
-            ago
-            - if issue.labels.any?
-              - issue.labels.each do |label|
-                %span.label{'class' => "label-#{label.color}"}= label.name
+      - if @project.issues.any?
+        - @project.issues.where(state: params[:state] || 'open').each do |issue|
+          %a.list-group-item{'href' => project_issue_path(@project, issue.number)}
+            %span.badge= "##{issue.number}"
+            %span.badge= issue.state
+            %h4.list-group-item-heading
+              = issue.title
+            %p.list-group-item-text.text-muted
+              Opened by
+              = issue.user.username
+              = time_ago_in_words(issue.created_at)
+              ago
+              - if issue.labels.any?
+                - issue.labels.each do |label|
+                  %span.label{'class' => "label-#{label.color}"}= label.name
+      - else
+        .list-group-item.text-center
+          No issues to show.
+          = link_to 'Create a new issue.', new_project_issue_path(@project)
