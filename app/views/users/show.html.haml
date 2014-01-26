@@ -18,6 +18,10 @@
       Created
       = pluralize(@user.issues.count, 'issue')
     %h5
+      %span.glyphicon.glyphicon-comment
+      Commented
+      = pluralize(@user.comments.count, 'time')
+    %h5
       %span.glyphicon.glyphicon-time
       Joined on
       = @user.created_at.strftime('%b %e, %Y')
@@ -38,7 +42,7 @@
           - default_project_limit = 6
           - @user.projects.order('updated_at DESC').limit(params[:p] || default_project_limit).each do |project|
             %a.list-group-item{'href' => project_path(project)}
-              %span.badge= project.issues.count
+              %span.badge= "#{project.issues.count} issues"
               %h4.list-group-item-heading{'title' => "Last updated #{time_ago_in_words(project.updated_at)} ago"}= project.name
               - unless project.description.blank?
                 %p.list-group-item-text= project.description

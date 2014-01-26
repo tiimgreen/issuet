@@ -5,6 +5,7 @@ class Issue < ActiveRecord::Base
   belongs_to :project
 
   has_many :labels
+  has_many :comments, dependent: :destroy
 
   validates :title, presence: true, uniqueness: { scope: :project }
   validates :body, presence: true

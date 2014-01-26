@@ -20,6 +20,10 @@
           %a.list-group-item{'href' => project_issue_path(@project, issue.number)}
             %span.badge= "##{issue.number}"
             %span.badge= issue.state
+            - if issue.comments.any?
+              %span.badge
+                %span.glyphicon.glyphicon-comment
+                = issue.comments.count
             %h4.list-group-item-heading
               = issue.title
             %p.list-group-item-text.text-muted
