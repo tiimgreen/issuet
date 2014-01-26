@@ -6,7 +6,7 @@ class Issue < ActiveRecord::Base
 
   has_many :labels
 
-  validates :title, presence: true, uniqueness: true
+  validates :title, presence: true, uniqueness: { scope: :project }
   validates :body, presence: true
   validates :state, inclusion: { in: %w(open closed) }
   validates :user, presence: true
@@ -21,5 +21,9 @@ class Issue < ActiveRecord::Base
       project.increment!(:issue_sequence)
       self[:number] = project.issue_sequence
     end
+  end
+
+  def to_param
+    number
   end
 end
