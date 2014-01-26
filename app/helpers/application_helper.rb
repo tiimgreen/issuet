@@ -8,4 +8,9 @@ module ApplicationHelper
       space_after_headers: true)
     markdown.render(content).html_safe
   end
+
+  def full_title(page_title)
+    base_title = "Issuet"
+    page_title.empty? ? base_title : "#{base_title} | #{page_title}"
+  end
 end
