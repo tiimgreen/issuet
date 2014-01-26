@@ -1,12 +1,12 @@
+= render 'shared/project_header'
+
 .row
   .col-md-4
   .col-md-4
     .panel.panel-default
       .panel-heading.text-center
         %h2.panel-title
-          Edit the
-          %em= @project.name
-          project
+          Edit project settings
       .panel-body
         = render 'errors'
         = form_for @project, url: project_path, method: :patch, class: 'input-group input-group-lg' do |f|

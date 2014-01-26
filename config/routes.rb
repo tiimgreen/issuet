@@ -4,5 +4,7 @@ Issuet::Application.routes.draw do
   devise_for :users
   get 'users/:username', to: 'users#show', as: :user_profile
 
-  resources :projects
+  resources :projects do
+    resources :issues
+  end
 end

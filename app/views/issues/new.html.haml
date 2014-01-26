@@ -1,0 +1,17 @@
+= render 'shared/project_header'
+
+.row
+  .col-md-4
+  .col-md-4
+    .panel.panel-default
+      .panel-heading.text-center
+        %h2.panel-title Create a new issue
+      .panel-body
+        = render 'errors'
+        = form_for @issue, url: projects_path, method: :post, class: 'input-group input-group-lg' do |f|
+          = f.text_field :title, placeholder: 'Issue title', required: 'true', autofocus: true, class: 'form-control'
+          %br
+          = f.text_area :body, placeholder: 'Issue body', required: 'true', class: 'form-control'
+          %br
+          = f.submit 'Create issue', class: 'btn btn-success btn-block'
+  .col-md-4
