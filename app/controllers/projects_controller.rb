@@ -50,7 +50,7 @@ class ProjectsController < ApplicationController
 
   def project_owner?
     @project = Project.find_by_name(params[:id])
-    redirect_to @project unless @project.user_id == current_user.id
+    redirect_to @project unless @project.user == current_user
   end
 
   def project_params
