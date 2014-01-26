@@ -15,6 +15,7 @@ gem 'jbuilder', '~> 1.2'
 
 gem 'devise', '~> 3.2'
 gem 'gravatar_image_tag', '~> 1.2'
+gem 'redcarpet', '~> 3.0'
 
 gem 'rails_12factor', group: :production
 
