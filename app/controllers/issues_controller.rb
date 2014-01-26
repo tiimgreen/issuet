@@ -8,6 +8,7 @@ class IssuesController < ApplicationController
 
   def new
     @issue = Issue.new
+    @project = Project.find_by_name(params[:project_id] || params[:id])
   end
 
   def create

@@ -1,3 +1,5 @@
+= provide :title, "#{@user.username} (#{@user.name})"
+
 .row
   .col-md-3
     = gravatar_image_tag @user.email, alt: 'Change your avatar at gravatar.com', class: 'gravatar', title: 'Change your avatar at gravatar.com', gravatar: { size: 512 }
