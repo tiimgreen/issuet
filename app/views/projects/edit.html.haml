@@ -16,7 +16,7 @@
           %br
           = f.text_field :description, placeholder: 'Description (optional)', class: 'form-control'
           %br
-          = f.submit 'Save changes', class: 'btn btn-success btn-block'
+          = f.submit 'Save changes', class: 'btn btn-default btn-block'
       .panel-footer
         = button_to 'Delete project', project_path, data: { confirm: 'Are you sure you want to delete this project?' }, method: :delete, class: 'btn btn-xs btn-warning btn-block'
   .col-md-4
