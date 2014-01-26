@@ -34,21 +34,23 @@
           %small by
           %small= @user.username
       %ul.list-group
-        - if @user.projects.blank?
-          .panel-body
-            %br
-            %p.text-center No projects to show.
-        - else
+        - if @user.projects.any?
           - default_project_limit = 6
           - @user.projects.order('updated_at DESC').limit(params[:p] || default_project_limit).each do |project|
             %a.list-group-item{'href' => project_path(project)}
               %span.badge= "#{project.issues.count} issues"
-              %h4.list-group-item-heading{'title' => "Last updated #{time_ago_in_words(project.updated_at)} ago"}= project.name
-              - unless project.description.blank?
-                %p.list-group-item-text= project.description
+              %h4.list-group-item-heading{'title' => "Last updated #{time_ago_in_words(project.updated_at)} ago"}
+                = project.name
+                - unless project.description.blank?
+                  %small= project.description
           - if (@user.projects.count > default_project_limit) && (params[:p].to_i < @user.projects.count)
             %a.list-group-item{'href' => user_profile_path(@user.username, p: @user.projects.count)}
               %h4.list-group-item-heading.text-center Show all projects
+        - else
+          .panel-body
+            %br
+            %p.text-center No projects to show.
+
   / .col-md-4
   /   .panel.panel-default
   /     .panel-heading
