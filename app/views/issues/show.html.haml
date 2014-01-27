@@ -1,0 +1,29 @@
+= render 'shared/project_header'
+
+.row
+  .col-md-2
+    - if @issue.state == 'open'
+      %button.btn.btn-lg.btn-block.btn-success.disabled= @issue.state
+    - else
+      %button.btn.btn-lg.btn-block.btn-danger.disabled= @issue.state
+    %hr
+    - if @issue.labels.any?
+      - @issue.labels.each do |label|
+        %button.btn.btn-xs.btn-block.disabled{'class' => "btn-#{label.color}"}= label.name
+    - else
+      %h6.text-center No labels to show.
+  .col-md-10
+    .jumbotron
+      %h1= @issue.title
+      %p= to_markdown(@issue.body)
+    - @issue.comments.each do |comment|
+      .media
+        %a.pull-left{'href' => user_profile_path(comment.user.username)}
+          = gravatar_image_tag comment.user.email, class: 'media-object', gravatar: { size: 64 }
+        .media-body
+          %h6.media-heading
+            = link_to comment.user.username, user_profile_path(comment.user.username)
+            commented
+            = time_ago_in_words(comment.created_at)
+            ago
+          = comment.body

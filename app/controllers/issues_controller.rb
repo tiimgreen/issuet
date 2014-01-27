@@ -26,6 +26,7 @@ class IssuesController < ApplicationController
 
   def show
     @issue = Issue.find_by_number(params[:id])
+    @project = Project.find_by_name(params[:project_id])
   end
 
   private
