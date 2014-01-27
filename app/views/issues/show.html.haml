@@ -16,14 +16,17 @@
     .jumbotron
       %h1= @issue.title
       %p= to_markdown(@issue.body)
-    - @issue.comments.each do |comment|
-      .media
-        %a.pull-left{'href' => user_profile_path(comment.user.username)}
-          = gravatar_image_tag comment.user.email, class: 'media-object', gravatar: { size: 64 }
-        .media-body
-          %h6.media-heading
-            = link_to comment.user.username, user_profile_path(comment.user.username)
-            commented
-            = time_ago_in_words(comment.created_at)
-            ago
-          = comment.body
+    - if @issue.comments.any?
+      - @issue.comments.each do |comment|
+        .media
+          %a.pull-left{'href' => user_profile_path(comment.user.username)}
+            = gravatar_image_tag comment.user.email, class: 'media-object', gravatar: { size: 64 }
+          .media-body
+            %h6.media-heading
+              = link_to comment.user.username, user_profile_path(comment.user.username)
+              commented
+              = time_ago_in_words(comment.created_at)
+              ago
+            = comment.body
+    - else
+      %h6.text-center No comments to show.
