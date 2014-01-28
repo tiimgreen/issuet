@@ -28,5 +28,11 @@
               = time_ago_in_words(comment.created_at)
               ago
             = comment.body
+        %hr
     - else
       %h6.text-center No comments to show.
+    .row
+      = render 'comment_errors'
+      = form_for @comment, url: project_issue_comments_path(@project.name, @issue.number), method: :post, class: 'input-group input-group-lg' do |f|
+        .col-md-9= f.text_area :body, placeholder: 'Leave a comment', required: 'true', autofocus: true, style: 'resize:vertical', class: 'form-control'
+        .col-md-3= f.submit 'Create comment', class: 'btn btn-success btn-block'

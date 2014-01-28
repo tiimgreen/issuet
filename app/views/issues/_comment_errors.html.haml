@@ -1,0 +1,9 @@
+- if @comment.errors.any?
+  .alert.alert-danger.alert-dismissable
+    %button.close{'type' => 'button', 'data-dismiss' => 'alert', 'aria-hidden' => 'true'} &times;
+    %strong
+      = pluralize @comment.errors.count, 'error'
+      prohibited this comment from being saved:
+    %ul
+      - @comment.errors.full_messages.each do |msg|
+        %li= msg

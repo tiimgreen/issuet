@@ -5,6 +5,8 @@ Issuet::Application.routes.draw do
   get 'users/:username', to: 'users#show', as: :user_profile
 
   resources :projects do
-    resources :issues
+    resources :issues do
+      resources :comments
+    end
   end
 end
