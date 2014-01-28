@@ -25,14 +25,14 @@ class IssuesController < ApplicationController
   end
 
   def show
-    @issue = Issue.find_by_number(params[:id])
     @project = Project.find_by_name(params[:project_id])
+    @issue = @project.issues.find_by_number(params[:id])
   end
 
   private
 
   def issue_owner?
-    @issue = Issue.find_by_name(params[:id])
+    @issue = Issue.find_by_number(params[:id])
     redirect_to @issue unless @issue.user == current_user
   end
 

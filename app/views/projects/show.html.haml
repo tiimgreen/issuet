@@ -19,7 +19,7 @@
     .list-group
       - if @issues.any?
         - @issues.where(state: params[:state] || 'open').each do |issue|
-          %a.list-group-item{'href' => project_issue_path(@project, issue.number)}
+          %a.list-group-item{'href' => project_issue_path(@project.name, issue.number)}
             %span.badge= "##{issue.number}"
             %span.badge= issue.state
             - if issue.comments.any?
