@@ -27,4 +27,16 @@ class Issue < ActiveRecord::Base
   def to_param
     number
   end
+
+  def open
+    update_attribute(:state, 'open') unless open?
+  end
+
+  def close
+    update_attribute(:state, 'closed') if open?
+  end
+
+  def open?
+    self.state == 'open'
+  end
 end
