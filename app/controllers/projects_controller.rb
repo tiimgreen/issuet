@@ -22,17 +22,17 @@ class ProjectsController < ApplicationController
   end
 
   def show
-    @project = Project.find_by_name(params[:id])
+    @project = Project.find_by(name: params[:id])
     @issues = @project.issues
     @owner = User.find(@project.user_id)
   end
 
   def edit
-    @project = Project.find_by_name(params[:id])
+    @project = Project.find_by(name: params[:id])
   end
 
   def update
-    @project = Project.find_by_name(params[:id])
+    @project = Project.find_by(name: params[:id])
 
     if @project.update(permit)
       redirect_to project_path(@project)
@@ -42,15 +42,14 @@ class ProjectsController < ApplicationController
   end
 
   def destroy
-    Project.find_by_name(params[:id]).destroy
-
+    Project.find_by(name: params[:id]).destroy
     redirect_to root_path
   end
 
   private
 
   def project_owner?
-    @project = Project.find_by_name(params[:id])
+    @project = Project.find_by(name: params[:id])
     redirect_to @project unless @project.user == current_user
   end
 

@@ -3,8 +3,8 @@ class CommentsController < ApplicationController
 
   def create
     @user = User.find(current_user)
-    @project = Project.find_by_name(params[:project_id])
-    @issue = @project.issues.find_by_number(params[:issue_id] || params[:id])
+    @project = Project.find_by(name: params[:project_id])
+    @issue = @project.issues.find_by(number: params[:issue_id] || params[:id])
     @comment = @issue.comments.new(permit)
     @comment.user = @user
 

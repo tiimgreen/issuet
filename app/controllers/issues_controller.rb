@@ -8,12 +8,12 @@ class IssuesController < ApplicationController
 
   def new
     @issue = Issue.new
-    @project = Project.find_by_name(params[:project_id] || params[:id])
+    @project = Project.find_by(name: params[:project_id] || params[:id])
   end
 
   def create
     @user = User.find(current_user)
-    @project = Project.find_by_name(params[:project_id])
+    @project = Project.find_by(name: params[:project_id])
     @issue = @project.issues.new(permit)
     @issue.user = @user
 
@@ -25,15 +25,15 @@ class IssuesController < ApplicationController
   end
 
   def show
-    @project = Project.find_by_name(params[:project_id])
-    @issue = @project.issues.find_by_number(params[:id])
+    @project = Project.find_by(name: params[:project_id])
+    @issue = @project.issues.find_by(number: params[:id])
     @comment = Comment.new
   end
 
   private
 
   def issue_owner?
-    @issue = Issue.find_by_number(params[:id])
+    @issue = Issue.find_by(number: params[:id])
     redirect_to @issue unless @issue.user == current_user
   end
 
